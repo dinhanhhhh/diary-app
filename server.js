@@ -5,6 +5,7 @@ const session = require("express-session");
 const cors = require("cors");
 const methodOverride = require("method-override");
 const path = require("path");
+const serverless = require("serverless-http");
 
 // Kết nối cơ sở dữ liệu
 require("./config/database");
@@ -48,3 +49,5 @@ app.set("view engine", "ejs");
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports = serverless(app);
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng ký</title>
+</head>
+<body>
+  <h1>Đăng ký tài khoản</h1>
+  <form action="/api/auth/register" method="POST">
+    <label>Username:</label>
+    <input type="text" name="username" required>
+    <br>
+    <label>Email:</label>
+    <input type="email" name="email" required>
+    <br>
+    <label>Password:</label>
+    <input type="password" name="password" required>
+    <br>
+    <button type="submit">Đăng ký</button>
+  </form>
+  <p>Nếu đã có tài khoản, <a href="/api/auth/login">Đăng nhập</a></p>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tạo/Sửa Nhật ký</title>
+</head>
+<body>
+  <h1><%= diary ? "Chỉnh sửa nhật ký" : "Tạo nhật ký mới" %></h1>
+  <form action="<%= diary ? '/api/diary/' + diary._id + '?_method=PUT' : '/api/diary' %>" method="POST">
+    <label>Tiêu đề:</label>
+    <input type="text" name="title" value="<%= diary ? diary.title : '' %>" required>
+    <br>
+    <label>Nội dung:</label>
+    <textarea name="content" required><%= diary ? diary.content : '' %></textarea>
+    <br>
+    <button type="submit"><%= diary ? "Cập nhật" : "Tạo" %></button>
+  </form>
+  <a href="/api/diary">Quay lại danh sách</a>
+</body>
+</html>

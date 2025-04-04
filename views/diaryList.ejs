@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nhật ký cá nhân</title>
+  </head>
+  <body>
+    <h1>Danh sách nhật ký</h1>
+    <a href="/api/diary/new">Tạo nhật ký mới</a>
+    <ul>
+      <% diaries.forEach(function(diary) { %>
+      <li>
+        <h3><%= diary.title %> (<%= diary.sentiment %>)</h3>
+        <p><%= diary.content %></p>
+        <p>Ngày: <%= diary.createdAt.toLocaleString() %></p>
+
+        <!-- Thêm nút sửa và xoá -->
+        <a href="/api/diary/<%= diary._id %>/edit">Chỉnh sửa</a>
+        <form
+          action="/api/diary/<%= diary._id %>?_method=DELETE"
+          method="POST"
+          style="display: inline"
+          onsubmit="return confirm('Bạn có chắc chắn muốn xóa?')"
+        >
+          <button type="submit">Xoá</button>
+        </form>
+      </li>
+      <% }); %>
+    </ul>
+    <a href="/api/auth/profile">Quay lại Profile</a>
+  </body>
+</html>
